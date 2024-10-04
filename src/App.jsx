@@ -18,13 +18,16 @@ function App() {
        newTodo.splice(index, 1)
        setTodo(newTodo) 
   }
-  function updateTodo(index) {
-    
+  function editTodo(index) {
+       let updatedTodo = prompt("Enter your Todo ")
+       todo.splice(index, 1, updatedTodo);
+       setTodo([...todo])
   }
 
 
   return (
-    <>
+    <>   <div className='container'>
+          <h1>Todo App</h1>
         <form onSubmit={add}> 
               <input type="text" className='input' ref={input}/>
               <button>add</button>    
@@ -34,10 +37,11 @@ function App() {
              {todo.length > 0 ? todo.map((item, index)=>{
                  return <li key={index}> {item} 
                   <button onClick={deleteTodo}>Delete</button>
-                  <button onClick={updateTodo}>Update</button>
+                  <button onClick={editTodo}>Update</button>
                  </li>   
              }):"No Item Found"}
         </ol>
+        </div>
     </>
   )
 }
