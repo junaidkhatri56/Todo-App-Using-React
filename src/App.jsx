@@ -36,8 +36,8 @@ function App() {
         <ol>
              {todo.length > 0 ? todo.map((item, index)=>{
                  return <li key={index}> {item} 
-                  <button onClick={deleteTodo}>Delete</button>
-                  <button onClick={editTodo}>Update</button>
+                  <button onClick={() => deleteTodo(index)}>Delete</button>
+                  <button onClick={() => editTodo(index)}>Edit</button>
                  </li>   
              }):"No Item Found"}
         </ol>
